@@ -1,0 +1,5 @@
+export OS_USERNAME='admin'
+export OS_PASSWORD='strenggeheim'
+export OS_TENANT_NAME='webserver'
+export OS_AUTH_URL='http://api.openstack.terraformbuch.de:5000/v2.0'
+export OS_USE_OCTAVIA='true'

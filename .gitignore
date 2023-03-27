@@ -1,0 +1,20 @@
+merged.*
+**/.DS_Store
+**/.envrc
+**/.direnv
+**/venv
+**/shell.nix
+**/merged.*
+**/.terraform
+**/.terraform.lock.hcl
+**/.terraform.tfstate.lock.info
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/.idea
+
+# Kapitel 10
+**/*_id_*
+**/*.ova
+**/*.qcow2
+**/*.vmdk
+**/*credentials*

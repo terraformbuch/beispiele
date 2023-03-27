@@ -1,0 +1,4 @@
+resource "aws_key_pair" "terraform" {
+  key_name   = "terraform-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwzGoKKPDue/eYEyN5mEfjgGnE4CozFFY27QYMCLGboyjYjBoev+IvFph0rgGgkXVgpKw9kRdo3+TxVgcvXB73dZk8pE1TF1pq8otSWWqk1T6Tn+rsGcmKO7cLZPZnYGWXi8idZv3ElbsjNX8UI3K6kqxSiWi/NXJO5xEhNBsFw7SlT6X4bOVr5ufmE0v0gG/WnbmbtqkfU5vwQcOHgcKb97X/umPzMjHZEaeBTIiNvJ3s9Wl+48kw8uA5NkLDTdGU7jr3R8tOF0kaRynAuSC0O34MCaCzPAhAVATuKP9B6nPvpgIKL8L/dYLquFBseBfHsS5ZEtILfAc5ttQPVz7WK45f5/Bd+PsXwRjYF/LEY3FHTmjtwOPW5zPCyaKryXfcdxLROrZBP2rs75Eh3nxXG+asiBOzjfs1N58zwmdpij72bTU322MIzSHU7V3xNgpQDSg2+kWTpkiuIBlxqr+GQUg/RqycMqQ8LGFLA7la5g2g+Rcyhit5qu5H6+Ur8FE= tux@terraformbuch.de"
+}

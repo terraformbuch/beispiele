@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: latest
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted

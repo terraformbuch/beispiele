@@ -1,0 +1,65 @@
+#cloud-config
+# vim: syntax=yaml
+#
+# ***********************
+# 	---- for more examples look at: ------
+# ---> https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+# ******************************
+#
+# This is the configuration syntax that the write_files module
+# will know how to understand. encoding can be given b64 or gzip or (gz+b64).
+# The content will be decoded accordingly and then written to the path that is
+# provided.
+#
+# Note: Content strings here are truncated for example purposes.
+
+cloud_config_modules:
+  - runcmd
+
+cloud_final_modules:
+  - scripts-user
+
+hostname: ${hostname}
+
+users:
+  - name: root
+    lock_passwd: false
+    plain_text_passwd: ${root_password}
+  - name: ${admin_user}
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    home: /home/${admin_user}
+    shell: /bin/bash
+    lock_passwd: false
+    ssh-authorized-keys:
+      - ${public_key}
+
+write_files:
+  # overwrite default cloud-init config
+  - path: /etc/netplan/50-cloud-init.yaml
+    content: |
+      network:
+        ethernets:
+          eth0:
+            match:
+              name: "en*"
+            addresses: [${ipaddress}${ipcidr}]
+            routes:
+              - to: default
+                via: ${ipgateway}
+            nameservers:
+              addresses: [${ipgateway}]
+            dhcp4: no
+        version: 2
+
+package_update: true
+
+packages:
+  - qemu-guest-agent
+  - python
+
+runcmd:
+  - |
+    # add any command here
+    netplan apply
+    echo "Cloud init commands did run"

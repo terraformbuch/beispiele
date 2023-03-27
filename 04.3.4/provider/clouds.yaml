@@ -1,0 +1,17 @@
+---
+clouds:
+  terraformbuch:
+    auth:
+      auth_url: http://api.openstack.terraformbuch.de:5000/v2.0
+      username: admin
+      password: strenggeheim
+      project_name: webserver
+    identity_api_version: 3
+    verify: false
+  meine-weitere-cloud:
+    auth:
+      auth_url: https://api.xyz.terraformbuch.de:5000/v2.0
+      username: user42
+      password: superstrenggeheim
+      project_name: office
+    identity_api_version: 3

@@ -1,0 +1,5 @@
+provider_installation {
+  filesystem_mirror {
+    path = "/usr/local/terraform/providers"
+  }
+}

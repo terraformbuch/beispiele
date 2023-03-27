@@ -1,0 +1,7 @@
+[default]
+aws_access_key_id = AKIAXXXXXXXXXXUDT5GO
+aws_secret_access_key = 01189998819991197253
+
+[terraform-buch]
+aws_access_key_id = AKIAXXXXXXXXXXYYYYYY
+aws_secret_access_key = 00388837293402733312

@@ -1,0 +1,18 @@
+credentials "app.terraform.io" {
+  token = "F4E4D7DC-C088-472B-9655-57EC1BBBED4F"
+}
+credentials_helper "terraformbuch" {
+  args = ["--host=credstore.terraformbuch.de"]
+}
+disable_checkpoint           = true
+disable_checkpoint_signature = true
+plugin_cache_dir             = "$HOME/.terraform.d/plugin-cache"
+provider_installation {
+  filesystem_mirror {
+    path    = "/usr/share/terraform/providers"
+    include = ["terraformbuch.de/*/*"]
+  }
+  direct {
+    exclude = ["terraformbuch.de/*/*"]
+  }
+}

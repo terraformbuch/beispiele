@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: zypper refresh on Suse
+      ansible.builtin.command: zypper -n --gpg-auto-import-keys ref -f
+      when: ansible_os_family == "Suse"
+
+    - name: install nginx on Suse
+      ansible.builtin.zypper:
+        name: nginx
+        state: latest
+      when: ansible_os_family == "Suse"
+
+    - name: install nginx on Debian/Ubuntu
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+        update_cache: true
+      when: ansible_os_family == "Debian"
+
+    - name: write website on Suse
+      ansible.builtin.copy:
+        content: "Ihr Deployment war erfolgreich!"
+        dest: /srv/www/htdocs/index.html
+      when: ansible_os_family == "Suse"
+
+    - name: write website on Debian
+      ansible.builtin.copy:
+        content: "Ihr Deployment war erfolgreich!"
+        dest: /var/www/html/index.html
+      when: ansible_os_family == "Debian"
+
+    - name: start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true

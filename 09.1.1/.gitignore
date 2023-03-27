@@ -1,0 +1,17 @@
+# externe Module, Plug-ins, Provider
+**/.terraform/*
+
+# State
+*.tfstate
+.tfstate.
+
+# sensible Daten in .tfvars-Dateien
+*.tfvars
+
+# Overrides zum Überschreiben von lokalen Ressourcen (meist nur genutzt für Anpassungen/Tests)
+override.tf*
+*_override.tf*
+
+# Konfigurationsdateien (könnten auch sensible Daten/Zugangsdaten enthalten)
+.terraformrc
+terraform.rc
